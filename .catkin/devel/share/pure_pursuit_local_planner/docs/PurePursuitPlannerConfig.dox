@@ -1,0 +1,17 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~rotation_accuracy" : \b [double] Accuracy of the orientation to the goal orientation. min: 0.0, default: 0.1, max: 3.14
+- \b "~position_accuracy" : \b [double] Maximal distance to the goal position. min: 0.0, default: 0.1, max: 0.5
+- \b "~max_rotation_vel" : \b [double] The absolute value of the maximum rotational velocity for the robot in rad/s. min: 0.0, default: 0.8, max: 20.0
+- \b "~min_rotation_vel" : \b [double] The absolute value of the minimum rotational velocity for the robot in rad/s. min: 0.0, default: 0.2, max: 20.0
+- \b "~max_x_vel" : \b [double] The maximum x velocity for the robot in m/s. min: 0.0, default: 0.05, max: 20.0
+- \b "~sim_time" : \b [double] The time in seconds which look along the global plan with maximal velocity, to calulate the path. min: 0.0, default: 0.4, max: 20.0
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration. min: False, default: False, max: True
+- \b "~acceleration_x" : \b [double] The acceleration limit of the robot in the x direction. min: 0.0, default: 0.1, max: 10.0
+- \b "~acceleration_z" : \b [double] The acceleration limit of the robot for rotation. min: 0.0, default: 0.1, max: 10.0
+- \b "~slow_down_factor" : \b [double] Factor to scale when the robot should slow down by in place rotation. min: 0.0, default: 1.0, max: 10.0
+- \b "~local_planner_frequence" : \b [double] Need to set to the same value as the local planner frequence (controller frequence) in move base. min: 0.0, default: 10.0, max: 100.0
+- \b "~join_obstacle" : \b [bool] If true, local and global costmaps are joined. Local obstacle will bypass. min: False, default: True, max: True
+

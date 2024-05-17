@@ -89,6 +89,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,17 +123,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -198,126 +198,6 @@ run_tests_map_server_rostest_test_rtest.xml/fast:
 .PHONY : run_tests_map_server_rostest_test_rtest.xml/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/rtest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rtest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rtest.dir/rule
-
-# Convenience name for target.
-rtest: navigation/map_server/CMakeFiles/rtest.dir/rule
-
-.PHONY : rtest
-
-# fast build rule for target.
-rtest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rtest.dir/build.make navigation/map_server/CMakeFiles/rtest.dir/build
-.PHONY : rtest/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
-
-# Convenience name for target.
-run_tests_map_server_gtest_map_server_utest: navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
-
-.PHONY : run_tests_map_server_gtest_map_server_utest
-
-# fast build rule for target.
-run_tests_map_server_gtest_map_server_utest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/build
-.PHONY : run_tests_map_server_gtest_map_server_utest/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
-
-# Convenience name for target.
-_run_tests_map_server_gtest: navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
-
-.PHONY : _run_tests_map_server_gtest
-
-# fast build rule for target.
-_run_tests_map_server_gtest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/build
-.PHONY : _run_tests_map_server_gtest/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
-
-# Convenience name for target.
-_run_tests_map_server: navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
-
-.PHONY : _run_tests_map_server
-
-# fast build rule for target.
-_run_tests_map_server/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server.dir/build
-.PHONY : _run_tests_map_server/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
-
-# Convenience name for target.
-run_tests_map_server: navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
-
-.PHONY : run_tests_map_server
-
-# fast build rule for target.
-run_tests_map_server/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server.dir/build
-.PHONY : run_tests_map_server/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
-
-# Convenience name for target.
-map_server-map_saver: navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
-
-.PHONY : map_server-map_saver
-
-# fast build rule for target.
-map_server-map_saver/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server-map_saver.dir/build.make navigation/map_server/CMakeFiles/map_server-map_saver.dir/build
-.PHONY : map_server-map_saver/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
-
-# Convenience name for target.
-map_server_image_loader: navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
-
-.PHONY : map_server_image_loader
-
-# fast build rule for target.
-map_server_image_loader/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server_image_loader.dir/build.make navigation/map_server/CMakeFiles/map_server_image_loader.dir/build
-.PHONY : map_server_image_loader/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_lisp: navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : nav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-nav_msgs_generate_messages_lisp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
-.PHONY : nav_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
 navigation/map_server/CMakeFiles/run_tests_map_server_rostest.dir/rule:
 	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server_rostest.dir/rule
 .PHONY : navigation/map_server/CMakeFiles/run_tests_map_server_rostest.dir/rule
@@ -333,139 +213,19 @@ run_tests_map_server_rostest/fast:
 .PHONY : run_tests_map_server_rostest/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+navigation/map_server/CMakeFiles/rtest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rtest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/rtest.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_cpp: navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+rtest: navigation/map_server/CMakeFiles/rtest.dir/rule
 
-.PHONY : roscpp_generate_messages_cpp
+.PHONY : rtest
 
 # fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make navigation/map_server/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/map_server.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/map_server.dir/rule
-
-# Convenience name for target.
-map_server: navigation/map_server/CMakeFiles/map_server.dir/rule
-
-.PHONY : map_server
-
-# fast build rule for target.
-map_server/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server.dir/build.make navigation/map_server/CMakeFiles/map_server.dir/build
-.PHONY : map_server/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make navigation/map_server/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
-
-# Convenience name for target.
-clean_test_results_map_server: navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
-
-.PHONY : clean_test_results_map_server
-
-# fast build rule for target.
-clean_test_results_map_server/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/build.make navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/build
-.PHONY : clean_test_results_map_server/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_py: navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/map_server_utest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server_utest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/map_server_utest.dir/rule
-
-# Convenience name for target.
-map_server_utest: navigation/map_server/CMakeFiles/map_server_utest.dir/rule
-
-.PHONY : map_server_utest
-
-# fast build rule for target.
-map_server_utest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server_utest.dir/build.make navigation/map_server/CMakeFiles/map_server_utest.dir/build
-.PHONY : map_server_utest/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
+rtest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rtest.dir/build.make navigation/map_server/CMakeFiles/rtest.dir/build
+.PHONY : rtest/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
@@ -483,19 +243,34 @@ tf2_msgs_generate_messages_lisp/fast:
 .PHONY : tf2_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+_run_tests_map_server: navigation/map_server/CMakeFiles/_run_tests_map_server.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_nodejs
+.PHONY : _run_tests_map_server
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+_run_tests_map_server/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server.dir/build
+.PHONY : _run_tests_map_server/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_lisp: navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make navigation/map_server/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
@@ -513,49 +288,34 @@ nav_msgs_generate_messages_cpp/fast:
 .PHONY : nav_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_eus: navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+run_tests_map_server: navigation/map_server/CMakeFiles/run_tests_map_server.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_eus
+.PHONY : run_tests_map_server
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
+run_tests_map_server/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server.dir/build
+.PHONY : run_tests_map_server/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+run_tests_map_server_gtest_map_server_utest: navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : run_tests_map_server_gtest_map_server_utest
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
+run_tests_map_server_gtest_map_server_utest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server_gtest_map_server_utest.dir/build
+.PHONY : run_tests_map_server_gtest_map_server_utest/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
@@ -573,79 +333,19 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/rule
+navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/rule
+_run_tests_map_server_gtest: navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/rule
 
-.PHONY : roscpp_generate_messages_py
+.PHONY : _run_tests_map_server_gtest
 
 # fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/build.make navigation/map_server/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
-
-# Convenience name for target.
-_run_tests_map_server_rostest: navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
-
-.PHONY : _run_tests_map_server_rostest
-
-# fast build rule for target.
-_run_tests_map_server_rostest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/build
-.PHONY : _run_tests_map_server_rostest/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : nav_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-nav_msgs_generate_messages_nodejs/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
-.PHONY : nav_msgs_generate_messages_nodejs/fast
+_run_tests_map_server_gtest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server_gtest.dir/build
+.PHONY : _run_tests_map_server_gtest/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
@@ -693,6 +393,36 @@ actionlib_msgs_generate_messages_cpp/fast:
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/map_server_utest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server_utest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/map_server_utest.dir/rule
+
+# Convenience name for target.
+map_server_utest: navigation/map_server/CMakeFiles/map_server_utest.dir/rule
+
+.PHONY : map_server_utest
+
+# fast build rule for target.
+map_server_utest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server_utest.dir/build.make navigation/map_server/CMakeFiles/map_server_utest.dir/build
+.PHONY : map_server_utest/fast
+
+# Convenience name for target.
 navigation/map_server/CMakeFiles/_run_tests_map_server_gtest_map_server_utest.dir/rule:
 	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server_gtest_map_server_utest.dir/rule
 .PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server_gtest_map_server_utest.dir/rule
@@ -721,6 +451,51 @@ geometry_msgs_generate_messages_eus: navigation/map_server/CMakeFiles/geometry_m
 geometry_msgs_generate_messages_eus/fast:
 	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
+
+# Convenience name for target.
+_run_tests_map_server_rostest: navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/rule
+
+.PHONY : _run_tests_map_server_rostest
+
+# fast build rule for target.
+_run_tests_map_server_rostest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/build.make navigation/map_server/CMakeFiles/_run_tests_map_server_rostest.dir/build
+.PHONY : _run_tests_map_server_rostest/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_eus: navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_eus
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_eus/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+.PHONY : actionlib_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
@@ -753,19 +528,34 @@ actionlib_msgs_generate_messages_lisp/fast:
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+actionlib_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_nodejs
+.PHONY : actionlib_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+actionlib_msgs_generate_messages_nodejs/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
+
+# Convenience name for target.
+map_server_image_loader: navigation/map_server/CMakeFiles/map_server_image_loader.dir/rule
+
+.PHONY : map_server_image_loader
+
+# fast build rule for target.
+map_server_image_loader/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server_image_loader.dir/build.make navigation/map_server/CMakeFiles/map_server_image_loader.dir/build
+.PHONY : map_server_image_loader/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
@@ -798,21 +588,6 @@ tf2_msgs_generate_messages_cpp/fast:
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/build.make navigation/map_server/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
 	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
 .PHONY : navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
@@ -828,19 +603,79 @@ tf2_msgs_generate_messages_eus/fast:
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
-.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
+navigation/map_server/CMakeFiles/map_server.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/map_server.dir/rule
 
 # Convenience name for target.
-run_tests_map_server_gtest: navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
+map_server: navigation/map_server/CMakeFiles/map_server.dir/rule
 
-.PHONY : run_tests_map_server_gtest
+.PHONY : map_server
 
 # fast build rule for target.
-run_tests_map_server_gtest/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/build
-.PHONY : run_tests_map_server_gtest/fast
+map_server/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server.dir/build.make navigation/map_server/CMakeFiles/map_server.dir/build
+.PHONY : map_server/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
+
+# Convenience name for target.
+clean_test_results_map_server: navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/rule
+
+.PHONY : clean_test_results_map_server
+
+# fast build rule for target.
+clean_test_results_map_server/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/build.make navigation/map_server/CMakeFiles/clean_test_results_map_server.dir/build
+.PHONY : clean_test_results_map_server/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make navigation/map_server/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_py: navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_py
+
+# fast build rule for target.
+tf2_msgs_generate_messages_py/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+.PHONY : tf2_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
+
+# Convenience name for target.
+map_server-map_saver: navigation/map_server/CMakeFiles/map_server-map_saver.dir/rule
+
+.PHONY : map_server-map_saver
+
+# fast build rule for target.
+map_server-map_saver/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/map_server-map_saver.dir/build.make navigation/map_server/CMakeFiles/map_server-map_saver.dir/build
+.PHONY : map_server-map_saver/fast
 
 # Convenience name for target.
 navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
@@ -856,6 +691,21 @@ tf2_msgs_generate_messages_nodejs: navigation/map_server/CMakeFiles/tf2_msgs_gen
 tf2_msgs_generate_messages_nodejs/fast:
 	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make navigation/map_server/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
+.PHONY : navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
+
+# Convenience name for target.
+run_tests_map_server_gtest: navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/rule
+
+.PHONY : run_tests_map_server_gtest
+
+# fast build rule for target.
+run_tests_map_server_gtest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/build.make navigation/map_server/CMakeFiles/run_tests_map_server_gtest.dir/build
+.PHONY : run_tests_map_server_gtest/fast
 
 src/image_loader.o: src/image_loader.cpp.o
 
@@ -1031,56 +881,46 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... _run_tests_map_server_rostest_test_rtest.xml"
 	@echo "... run_tests_map_server_rostest_test_rtest.xml"
+	@echo "... run_tests_map_server_rostest"
 	@echo "... rtest"
-	@echo "... run_tests_map_server_gtest_map_server_utest"
-	@echo "... _run_tests_map_server_gtest"
+	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... install"
 	@echo "... _run_tests_map_server"
-	@echo "... run_tests_map_server"
-	@echo "... map_server-map_saver"
-	@echo "... map_server_image_loader"
 	@echo "... nav_msgs_generate_messages_lisp"
-	@echo "... run_tests_map_server_rostest"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... map_server"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... clean_test_results_map_server"
-	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... map_server_utest"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... install/local"
 	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... test"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... run_tests_map_server"
+	@echo "... run_tests_map_server_gtest_map_server_utest"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... _run_tests_map_server_rostest"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... _run_tests_map_server_gtest"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... map_server_utest"
 	@echo "... _run_tests_map_server_gtest_map_server_utest"
 	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... _run_tests_map_server_rostest"
+	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... nav_msgs_generate_messages_nodejs"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... actionlib_msgs_generate_messages_nodejs"
+	@echo "... map_server_image_loader"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... run_tests_map_server_gtest"
+	@echo "... map_server"
+	@echo "... clean_test_results_map_server"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... map_server-map_saver"
 	@echo "... tf2_msgs_generate_messages_nodejs"
+	@echo "... run_tests_map_server_gtest"
 	@echo "... src/image_loader.o"
 	@echo "... src/image_loader.i"
 	@echo "... src/image_loader.s"

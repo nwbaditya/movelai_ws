@@ -1,0 +1,29 @@
+PurePursuitROS:
+
+#Goal Accuracy
+  rotation_accuracy : 0.1
+  position_accuracy : 0.3
+
+  max_rotation_vel : 1
+  min_rotation_vel : 0.3
+
+  max_x_vel : 15
+
+  sim_time : 0.4
+  restore_defaults : false
+
+  acceleration_x : 8
+  acceleration_z : 10
+
+  slow_down_factor : 1
+
+  local_planner_frequence : 50
+
+  join_obstacle : true
+
+# Robot Configuration Parameters
+  max_vel_x: 0.26
+  min_vel_x: 0
+
+  max_vel_y: 0.0
+  min_vel_y: 0.0
