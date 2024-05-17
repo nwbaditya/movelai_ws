@@ -1,8 +1,0 @@
-prefix=/movelai_ws/devel
-
-Name: pure_pursuit_local_planner
-Description: Description of pure_pursuit_local_planner
-Version: 0.0.0
-Cflags: -I/movelai_ws/devel/include -I/movelai_ws/src/navigation/pure_pursuit_local_planner/include
-Libs: -L${prefix}/lib -lpure_pursuit_local_planner
-Requires: dynamic_reconfigure pluginlib roscpp
