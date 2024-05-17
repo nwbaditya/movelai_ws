@@ -1,0 +1,1 @@
+docker image rmi movelai_ws:base movelai_ws:overlay movelai_ws:dev -f

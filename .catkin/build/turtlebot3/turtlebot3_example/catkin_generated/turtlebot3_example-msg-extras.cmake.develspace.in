@@ -1,0 +1,2 @@
+set(turtlebot3_example_MESSAGE_FILES "/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/movelai_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg")
+set(turtlebot3_example_SERVICE_FILES "")

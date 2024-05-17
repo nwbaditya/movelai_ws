@@ -1,0 +1,83 @@
+# Docker Compose file for movelai_ws
+#
+# Usage:
+#
+# To build the images:
+#   docker compose build
+#
+# To start up a specific service by name:
+#   docker compose up <service_name>
+#
+# To open an interactive shell to a running container:
+#   docker exec -it <container_name> bash
+
+version: "3.9"
+services:
+  # Base image containing dependencies.
+  base:
+    image: movelai_ws:base
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        - ROS_DISTRO=noetic
+      target: base
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    # Needed to display graphical applications
+    privileged: True
+    environment:
+      # Needed to define a TurtleBot3 model type
+      - TURTLEBOT3_MODEL=${TURTLEBOT3_MODEL:-waffle_pi}
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+
+  # Overlay image containing the source code.
+  overlay:
+    extends: base
+    image: movelai_ws:overlay
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+      target: overlay
+
+  # Developer container
+  dev:
+    extends: overlay
+    image: movelai_ws:dev
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: dev
+      args:
+      - UID=${UID:-1000}
+      - GID=${UID:-1000}
+      - USERNAME=${USERNAME:-devuser}
+
+    environment:
+        # Needed to define a TurtleBot3 model type
+        - TURTLEBOT3_MODEL=${TURTLEBOT3_MODEL:-waffle_pi}
+        # Allows graphical programs in the container.
+        - DISPLAY=${DISPLAY}
+        - QT_X11_NO_MITSHM=1
+        - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      # Mount the source code
+      - ./src:/movelai_ws/src:rw
+      - ./bags:/movelai_ws/bags:bags
+      # Mount colcon build artifacts for faster rebuilds
+      - ./.catkin/build/:/movelai_ws/build/:rw
+      - ./.catkin/devel/:/movelai_ws/devel/:rw
+      - ./.catkin/log/:/movelai_ws/log/:rw
+    user: ${USERNAME:-devuser}
+    command: sleep infinity
