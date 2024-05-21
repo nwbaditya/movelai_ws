@@ -98,7 +98,7 @@ Below is the rqt_graph when the program is running :
 
 And the rqt_tf_tree :
 
-![RQT TF_Tree](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/rqt__tf_tree.png)
+![RQT TF_Tree](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/rqt_tf_tree.png)
 
 ## Controllers
 
@@ -143,7 +143,7 @@ You can found the tuning parameters here:
 ```bash
   movelai_ws/src/robot_bringup/params/pure_pursuit_planner_params_waffle_pi.yaml
 ```
-![Pure_Pursuit Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/dwa_local_planner_params.png)
+![Pure_Pursuit Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/pure_pursuit_local_planner_params.png)
 
 How to tune:
 - position_accuracy : the radius of robot that already counted as a success reaching the goal
