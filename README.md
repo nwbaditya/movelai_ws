@@ -126,7 +126,7 @@ You can found the tuning parameters here:
 ```bash
   movelai_ws/src/robot_bringup/params/dwa_local_planner_params_waffle_pi.yaml
 ```
-![DWA Local Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/dwa_local_planner_params.png)
+![DWA Local Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/dwa_planner_params.png)
 
 ### Pure Pursuit Planner
 
@@ -146,7 +146,7 @@ You can found the tuning parameters here:
 ```bash
   movelai_ws/src/robot_bringup/params/pure_pursuit_planner_params_waffle_pi.yaml
 ```
-![Pure_Pursuit Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/pure_pursuit_local_planner_params.png)
+![Pure_Pursuit Planner Params](https://raw.githubusercontent.com/nwbaditya/movelai_ws/main/image/pure_pursuit_planner_params.png)
 
 How to tune:
 - position_accuracy : the radius of robot that already counted as a success reaching the goal
