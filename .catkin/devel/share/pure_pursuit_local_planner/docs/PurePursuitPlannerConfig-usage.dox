@@ -3,6 +3,8 @@
 <node name="pure_pursuit_local_planner" pkg="pure_pursuit_local_planner" type="pure_pursuit_local_planner">
   <param name="rotation_accuracy" type="double" value="0.1" />
   <param name="position_accuracy" type="double" value="0.1" />
+  <param name="kp_linear" type="double" value="0.5" />
+  <param name="kp_angular" type="double" value="0.5" />
   <param name="max_rotation_vel" type="double" value="0.8" />
   <param name="min_rotation_vel" type="double" value="0.2" />
   <param name="max_x_vel" type="double" value="0.05" />

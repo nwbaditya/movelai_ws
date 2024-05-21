@@ -12,6 +12,7 @@ def path_filter_cb(req):
         path_filter.read_and_publish()
         return PathFilterCmdResponse("Loading Path Success.")
     elif req.cmd == "filter":
+        path_filter.set_desired_num_points(req.num_points)
         path_filter.filter_path()
         return PathFilterCmdResponse("Filtering Path Success.")
     elif req.cmd == "clear":

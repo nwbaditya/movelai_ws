@@ -144,12 +144,6 @@ navfn/potarr_point.h
 
 /movelai_ws/src/navigation/navfn/include/navfn/potarr_point.h
 
-/movelai_ws/src/navigation/navfn/src/navfn.cpp
-navfn/navfn.h
--
-ros/console.h
--
-
 /movelai_ws/src/navigation/navfn/src/navfn_ros.cpp
 navfn/navfn_ros.h
 -

@@ -10,7 +10,7 @@ class PathFilter:
     def __init__(self):
         rospy.init_node('path_filter')
         # self.desired_num_points = rospy.get_param('~desired_num_points', 100)
-        self.desired_num_points = 5
+        self.desired_num_points = 100
         # Get the file path parameter
         self.csv_file_path = rospy.get_param('~csv_file_path', os.path.join(os.getcwd(), 'robot-path.csv'))
 
@@ -30,6 +30,9 @@ class PathFilter:
         # Create a publisher for the Path data
         self.raw_path_publisher = rospy.Publisher('/raw_path', Path, queue_size=10)
         self.path_output_publisher = rospy.Publisher('/filtered_path', Path, queue_size=10)
+
+    def set_desired_num_points(self, num):
+        self.desired_num_points = num
 
     def read_and_publish(self):
         self.path_msg.header.frame_id = "map"

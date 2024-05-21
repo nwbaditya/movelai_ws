@@ -18,14 +18,14 @@ RUN apt install ros-${ROS_DISTRO}-gazebo-ros-pkgs -y
 ###########################################
 # Overlay Image for TurtleBot3 Simulation #
 ###########################################
-FROM base AS overlay
+# FROM base AS overlay
  
 RUN apt-get install python3-catkin-tools -y
 
 # Create an overlay Catkin workspace
 RUN mkdir -p /movelai_ws/src
-WORKDIR /movelai_ws
-COPY ./src /src
+# WORKDIR /movelai_ws
+# COPY ./src /src
 
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && cd /movelai_ws/src \ 
@@ -34,7 +34,10 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
 COPY ./src /movelai_ws/src
 COPY ./bags /movelai_ws/bags
 
+WORKDIR /movelai_ws
+
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+ && sudo rosdep fix-permissions \
  && rosdep update \
  && rosdep install --from-paths src -y --ignore-src \
  && catkin_make
@@ -52,7 +55,7 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 #####################
 # Development Image #
 #####################
-FROM overlay as dev
+# FROM overlay as dev
  
 # Dev container arguments
 ARG USERNAME=devuser

@@ -1,3 +1,4 @@
 string cmd
+int64 num_points
 ---
 string result

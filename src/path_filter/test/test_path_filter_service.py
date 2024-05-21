@@ -3,7 +3,7 @@
 import rospy
 import rostest
 import unittest
-from path_filter.srv import PathFilterCmd
+from path_filter.srv import PathFilterCmd,PathFilterCmdRequest
 
 class TestPathFilterService(unittest.TestCase):
     def test_load_path(self):
@@ -14,8 +14,12 @@ class TestPathFilterService(unittest.TestCase):
             # Create a service proxy
             path_filter_cmd = rospy.ServiceProxy('path_filter_cmd', PathFilterCmd)
             
+            request = PathFilterCmdRequest()
+            request.cmd = "load"
+            request.num_points = 0
+
             # Call the 'load' command
-            response = path_filter_cmd("load")
+            response = path_filter_cmd(request)
 
             # Check if the response indicates success
             self.assertEqual(response.result, "Loading Path Success.")
@@ -31,8 +35,12 @@ class TestPathFilterService(unittest.TestCase):
             # Create a service proxy
             path_filter_cmd = rospy.ServiceProxy('path_filter_cmd', PathFilterCmd)
             
+            request = PathFilterCmdRequest()
+            request.cmd = "filter"
+            request.num_points =100
+
             # Call the 'filter' command
-            response = path_filter_cmd("filter")
+            response = path_filter_cmd(request)
 
             # Check if the response indicates success
             self.assertEqual(response.result, "Filtering Path Success.")
@@ -48,8 +56,12 @@ class TestPathFilterService(unittest.TestCase):
             # Create a service proxy
             path_filter_cmd = rospy.ServiceProxy('path_filter_cmd', PathFilterCmd)
             
+            request = PathFilterCmdRequest()
+            request.cmd = "clear"
+            request.num_points =100
+
             # Call the 'clear' command
-            response = path_filter_cmd("clear")
+            response = path_filter_cmd(request)
 
             # Check if the response indicates success
             self.assertEqual(response.result, "Path Cleared.")

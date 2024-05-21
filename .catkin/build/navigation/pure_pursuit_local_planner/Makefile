@@ -56,39 +56,27 @@ CMAKE_BINARY_DIR = /movelai_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -101,15 +89,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : list_install_components/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -123,17 +112,28 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,51 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/rule
+
+# Convenience name for target.
+clean_test_results_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/rule
+
+.PHONY : clean_test_results_pure_pursuit_local_planner
+
+# fast build rule for target.
+clean_test_results_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/clean_test_results_pure_pursuit_local_planner.dir/build
+.PHONY : clean_test_results_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+
+# Convenience name for target.
+_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+
+.PHONY : _run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner
+
+# fast build rule for target.
+_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/build
+.PHONY : _run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+pcl_msgs_generate_messages_cpp: navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : pcl_msgs_generate_messages_cpp
+
+# fast build rule for target.
+pcl_msgs_generate_messages_cpp/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build
+.PHONY : pcl_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule:
 	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
 .PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
@@ -181,21 +226,6 @@ pcl_msgs_generate_messages_eus: navigation/pure_pursuit_local_planner/CMakeFiles
 pcl_msgs_generate_messages_eus/fast:
 	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build
 .PHONY : pcl_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_lisp: navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : pcl_msgs_generate_messages_lisp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_lisp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build
-.PHONY : pcl_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/rule:
@@ -213,6 +243,36 @@ pcl_msgs_generate_messages_nodejs/fast:
 .PHONY : pcl_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/rule
+
+# Convenience name for target.
+_run_tests_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/rule
+
+.PHONY : _run_tests_pure_pursuit_local_planner
+
+# fast build rule for target.
+_run_tests_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner.dir/build
+.PHONY : _run_tests_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/rule
+
+# Convenience name for target.
+tests_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/rule
+
+.PHONY : tests_pure_pursuit_local_planner
+
+# fast build rule for target.
+tests_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/build
+.PHONY : tests_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
 navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner_gencfg.dir/rule:
 	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner_gencfg.dir/rule
 .PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner_gencfg.dir/rule
@@ -226,6 +286,21 @@ pure_pursuit_local_planner_gencfg: navigation/pure_pursuit_local_planner/CMakeFi
 pure_pursuit_local_planner_gencfg/fast:
 	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner_gencfg.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner_gencfg.dir/build
 .PHONY : pure_pursuit_local_planner_gencfg/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/rule
+
+# Convenience name for target.
+_run_tests_pure_pursuit_local_planner_gtest: navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/rule
+
+.PHONY : _run_tests_pure_pursuit_local_planner_gtest
+
+# fast build rule for target.
+_run_tests_pure_pursuit_local_planner_gtest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/_run_tests_pure_pursuit_local_planner_gtest.dir/build
+.PHONY : _run_tests_pure_pursuit_local_planner_gtest/fast
 
 # Convenience name for target.
 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule:
@@ -258,19 +333,64 @@ pure_pursuit_local_planner/fast:
 .PHONY : pure_pursuit_local_planner/fast
 
 # Convenience name for target.
-navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
-	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
+navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/rule
 
 # Convenience name for target.
-pcl_msgs_generate_messages_cpp: navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
+run_tests_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/rule
 
-.PHONY : pcl_msgs_generate_messages_cpp
+.PHONY : run_tests_pure_pursuit_local_planner
 
 # fast build rule for target.
-pcl_msgs_generate_messages_cpp/fast:
-	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build
-.PHONY : pcl_msgs_generate_messages_cpp/fast
+run_tests_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner.dir/build
+.PHONY : run_tests_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+
+# Convenience name for target.
+run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner: navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/rule
+
+.PHONY : run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner
+
+# fast build rule for target.
+run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner.dir/build
+.PHONY : run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+pcl_msgs_generate_messages_lisp: navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : pcl_msgs_generate_messages_lisp
+
+# fast build rule for target.
+pcl_msgs_generate_messages_lisp/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build
+.PHONY : pcl_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/rule:
+	cd /movelai_ws/build && $(MAKE) -f CMakeFiles/Makefile2 navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/rule
+.PHONY : navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/rule
+
+# Convenience name for target.
+run_tests_pure_pursuit_local_planner_gtest: navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/rule
+
+.PHONY : run_tests_pure_pursuit_local_planner_gtest
+
+# fast build rule for target.
+run_tests_pure_pursuit_local_planner_gtest/fast:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/run_tests_pure_pursuit_local_planner_gtest.dir/build
+.PHONY : run_tests_pure_pursuit_local_planner_gtest/fast
 
 src/join_costmap.o: src/join_costmap.cpp.o
 
@@ -353,26 +473,61 @@ src/transform_global_plan.cpp.s:
 	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/pure_pursuit_local_planner.dir/src/transform_global_plan.cpp.s
 .PHONY : src/transform_global_plan.cpp.s
 
+test/utest.o: test/utest.cpp.o
+
+.PHONY : test/utest.o
+
+# target to build an object file
+test/utest.cpp.o:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/test/utest.cpp.o
+.PHONY : test/utest.cpp.o
+
+test/utest.i: test/utest.cpp.i
+
+.PHONY : test/utest.i
+
+# target to preprocess a source file
+test/utest.cpp.i:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/test/utest.cpp.i
+.PHONY : test/utest.cpp.i
+
+test/utest.s: test/utest.cpp.s
+
+.PHONY : test/utest.s
+
+# target to generate assembly for a file
+test/utest.cpp.s:
+	cd /movelai_ws/build && $(MAKE) -f navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/build.make navigation/pure_pursuit_local_planner/CMakeFiles/tests_pure_pursuit_local_planner.dir/test/utest.cpp.s
+.PHONY : test/utest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... clean_test_results_pure_pursuit_local_planner"
+	@echo "... _run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner"
+	@echo "... install"
+	@echo "... pcl_msgs_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_eus"
-	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_nodejs"
+	@echo "... test"
+	@echo "... _run_tests_pure_pursuit_local_planner"
+	@echo "... tests_pure_pursuit_local_planner"
 	@echo "... pure_pursuit_local_planner_gencfg"
+	@echo "... _run_tests_pure_pursuit_local_planner_gtest"
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... pure_pursuit_local_planner"
-	@echo "... test"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... list_install_components"
-	@echo "... pcl_msgs_generate_messages_cpp"
-	@echo "... install"
-	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... run_tests_pure_pursuit_local_planner"
+	@echo "... run_tests_pure_pursuit_local_planner_gtest_tests_pure_pursuit_local_planner"
+	@echo "... pcl_msgs_generate_messages_lisp"
+	@echo "... run_tests_pure_pursuit_local_planner_gtest"
 	@echo "... src/join_costmap.o"
 	@echo "... src/join_costmap.i"
 	@echo "... src/join_costmap.s"
@@ -382,6 +537,9 @@ help:
 	@echo "... src/transform_global_plan.o"
 	@echo "... src/transform_global_plan.i"
 	@echo "... src/transform_global_plan.s"
+	@echo "... test/utest.o"
+	@echo "... test/utest.i"
+	@echo "... test/utest.s"
 .PHONY : help
 
 

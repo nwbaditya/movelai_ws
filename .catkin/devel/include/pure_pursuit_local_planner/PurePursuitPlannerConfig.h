@@ -241,6 +241,8 @@ class DEFAULT
 
         if("rotation_accuracy"==(*_i)->name){rotation_accuracy = boost::any_cast<double>(val);}
         if("position_accuracy"==(*_i)->name){position_accuracy = boost::any_cast<double>(val);}
+        if("kp_linear"==(*_i)->name){kp_linear = boost::any_cast<double>(val);}
+        if("kp_angular"==(*_i)->name){kp_angular = boost::any_cast<double>(val);}
         if("max_rotation_vel"==(*_i)->name){max_rotation_vel = boost::any_cast<double>(val);}
         if("min_rotation_vel"==(*_i)->name){min_rotation_vel = boost::any_cast<double>(val);}
         if("max_x_vel"==(*_i)->name){max_x_vel = boost::any_cast<double>(val);}
@@ -256,6 +258,8 @@ class DEFAULT
 
     double rotation_accuracy;
 double position_accuracy;
+double kp_linear;
+double kp_angular;
 double max_rotation_vel;
 double min_rotation_vel;
 double max_x_vel;
@@ -279,6 +283,10 @@ bool join_obstacle;
       double rotation_accuracy;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       double position_accuracy;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      double kp_linear;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      double kp_angular;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       double max_rotation_vel;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -457,6 +465,26 @@ PurePursuitPlannerConfig::GroupDescription<PurePursuitPlannerConfig::DEFAULT, Pu
       Default.abstract_parameters.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("position_accuracy", "double", 0, "Maximal distance to the goal position.", "", &PurePursuitPlannerConfig::position_accuracy)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("position_accuracy", "double", 0, "Maximal distance to the goal position.", "", &PurePursuitPlannerConfig::position_accuracy)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __min__.kp_linear = 0.0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __max__.kp_linear = 1.0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __default__.kp_linear = 0.5;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      Default.abstract_parameters.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("kp_linear", "double", 0, "Proportional Gain for linear velocity.", "", &PurePursuitPlannerConfig::kp_linear)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __param_descriptions__.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("kp_linear", "double", 0, "Proportional Gain for linear velocity.", "", &PurePursuitPlannerConfig::kp_linear)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __min__.kp_angular = 0.0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __max__.kp_angular = 1.0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __default__.kp_angular = 0.5;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      Default.abstract_parameters.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("kp_angular", "double", 0, "Proportional Gain for angular velocity.", "", &PurePursuitPlannerConfig::kp_angular)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __param_descriptions__.push_back(PurePursuitPlannerConfig::AbstractParamDescriptionConstPtr(new PurePursuitPlannerConfig::ParamDescription<double>("kp_angular", "double", 0, "Proportional Gain for angular velocity.", "", &PurePursuitPlannerConfig::kp_angular)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.max_rotation_vel = 0.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"

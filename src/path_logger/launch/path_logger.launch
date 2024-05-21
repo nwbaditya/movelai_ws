@@ -1,0 +1,5 @@
+<launch>
+    <node name="path_logger" pkg="path_logger" type="path_logger_node.py" output="screen">
+        <param name="log_file_path" value="$(find path_logger)/path_recorded"/>
+    </node>
+</launch>
