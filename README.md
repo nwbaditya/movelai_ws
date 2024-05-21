@@ -3,6 +3,9 @@
 
 This is a workspace for MovelAI task, created by Nawab Aditya
 
+## Prerequisites
+- Ubuntu 22.04 x86 (Tested)
+- ubuntu 20.04 x86 (Tested)
 
 ## How to install the program
 
@@ -151,6 +154,12 @@ How to tune:
 - kp_angular : Proportional gain of the angular velocity
 
 Reference : https://thomasfermi.github.io/Algorithms-for-Automated-Driving/Control/PurePursuit.html
+
+### Running The Simple Waypoints Generator
+
+```bash
+  rosrun simple_waypoints simple_waypoints.py
+```
 
 ## Downscaling Robot Path
 For the downscaling the path algorithm, I'm just use simple sampling based on how much output points. For example, if I want to output 10 points from
