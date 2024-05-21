@@ -1,8 +1,0 @@
-prefix=/movelai_ws/devel
-
-Name: tb3_worlds
-Description: Description of tb3_worlds
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/movelai_ws/install
-
-Name: robot_bringup
-Description: Description of robot_bringup
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
