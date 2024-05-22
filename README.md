@@ -172,7 +172,7 @@ is maybe not the goal path.
 To run the unit test on path_filter module, run the following command:
 
 ```bash
-rostest path_filter test_path_filter_service.py
+rostest path_filter test_path_filter_service.test
 ```
 
 
