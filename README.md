@@ -167,6 +167,14 @@ For the downscaling the path algorithm, I'm just use simple sampling based on ho
 taking the start point and the goal point, so I won't miss the path alot. There's some case if the interval is not integer, so it will end up in a point which
 is maybe not the goal path.
 
+## Running the unit test
+
+To run the unit test on path_filter module, run the following command:
+
+```bash
+rostest path_filter test_path_filter_service.py
+```
+
 
 ## My Journey about how to solve the task
 
